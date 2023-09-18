@@ -6,6 +6,7 @@ Summary: A function that calculates and returns weekly pay taking into considera
 #include "Input_Validation_Extended.h"
 #include <cstdlib>
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main() {
@@ -32,6 +33,8 @@ double weeklyPay(string name, double hoursWorked, double payRate, int empType) {
   netPay -= (netPay * fitRate);
   // Take out social security and medicare
   netPay -= ((grossPay * 0.062) + (grossPay * 0.0145));
+
+  cout << name << ": $" << fixed << setprecision(2) << netPay << " : " << ((empType == 1) ? "Full time" : "Part time") << endl;
   
   return netPay;
 }
