@@ -9,7 +9,10 @@ Summary: A function that calculates and returns weekly pay taking into considera
 #include <iomanip>
 using namespace std;
 
+double weeklyPay(string name, double hoursWorked, double payRate, int empType);
+
 int main() {
+  weeklyPay("Charles", 47, 505.75, 1);
   return 0; 
 }
 
