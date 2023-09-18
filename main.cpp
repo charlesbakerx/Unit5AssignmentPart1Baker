@@ -16,13 +16,19 @@ double weeklyPay(string name, double hoursWorked, double payRate, int empType);
 
 int main() {
   weeklyPay("Charles", 47, 505.75, 1);
+  weeklyPay("Melivin", 45, 55.25, 1);
+  weeklyPay("Susan", 15, 65.25, 2);
+  weeklyPay("Mika", 41, 14.75, 1);
+  weeklyPay("Eldridge", 25, 15.0, 2);
+  weeklyPay("Freedom", 55, 203.50, 1);
+  weeklyPay("Tyson", 32.5, 100.25, 1);
   return 0; 
 }
 
 double weeklyPay(string name, double hoursWorked, double payRate, int empType) {
   double grossPay = 0, netPay = 0;
-  // If the employee is full time (1) set the fitRate to 15% otherwise they are part time (2) so we set it to 12%
-  double fitRate = (empType == 1) ? 0.15 : 0.12;
+  // If the employee makes $15 or greater an hour set the fitRate to 15% otherwise 12%
+  double fitRate = (payRate >= 15) ? 0.15 : 0.12;
   
   // If the employee worked overtime we calculate 2 times pay on the hours worked over 40
   if (hoursWorked > 40) {
