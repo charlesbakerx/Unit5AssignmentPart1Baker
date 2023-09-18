@@ -11,3 +11,12 @@ string allToUpper(string input) {
   return allUpper;
 }
 
+string allToLower(string input) {
+  string allLower = "";
+  for (char c : input) {
+    char up = tolower(c);
+    allLower.push_back(up);
+  }
+
+  return allLower;
+}

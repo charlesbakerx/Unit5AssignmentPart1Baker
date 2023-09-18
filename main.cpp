@@ -22,6 +22,9 @@ int main() {
   weeklyPay("Eldridge", 25, 15.0, 2);
   weeklyPay("Freedom", 55, 203.50, 1);
   weeklyPay("Tyson", 32.5, 100.25, 1);
+
+  cout << endl << allToLower("TCC-TR IS COOL") << endl;
+  cout << allToUpper("i will succeed at c++");
   return 0; 
 }
 
