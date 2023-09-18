@@ -4,11 +4,14 @@ IDE: Replit
 Summary: A function that calculates and returns weekly pay taking into consideration taxes and overtime pay.
 */
 #include "Input_Validation_Extended.h"
+#include "Utilities.h"
 #include <cstdlib>
 #include <iostream>
 #include <iomanip>
 using namespace std;
 
+string color = "\x1b[34;6m";
+string reset = "\x1b[0m";
 double weeklyPay(string name, double hoursWorked, double payRate, int empType);
 
 int main() {
@@ -37,7 +40,7 @@ double weeklyPay(string name, double hoursWorked, double payRate, int empType) {
   // Take out social security and medicare
   netPay -= ((grossPay * 0.062) + (grossPay * 0.0145));
 
-  cout << name << ": $" << fixed << setprecision(2) << netPay << " : " << ((empType == 1) ? "Full time" : "Part time") << endl;
+  cout << color << allToUpper(name) << reset << ": $" << fixed << setprecision(2) << netPay << " : " << ((empType == 1) ? "Full time" : "Part time") << endl;
   
   return netPay;
 }
