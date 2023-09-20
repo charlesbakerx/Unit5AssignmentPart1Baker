@@ -12,12 +12,12 @@ using namespace std;
 
 string blue = "\x1b[34;6m";
 string green = "\x1b[32;6m";
-string red = "\x1b[31;6m";
 string reset = "\x1b[0m";
 double weeklyPay(string name, double hoursWorked, double payRate, int empType);
 
 int main() {
-  cout << weeklyPay("Charles", 47, 505.75, 1) << endl << endl; 
+  // Call our weeklyPay function and output the return value to console
+  cout << weeklyPay("Charles", 47, 505.75, 1) << endl << endl;
   cout << weeklyPay("Melivin", 45, 55.25, 1) << endl << endl; 
   cout << weeklyPay("Susan", 15, 65.25, 2) << endl << endl; 
   cout << weeklyPay("Mika", 41, 14.75, 1) << endl << endl; 
@@ -43,7 +43,7 @@ double weeklyPay(string name, double hoursWorked, double payRate, int empType) {
   } // Now we calculate the base pay and add it to grossPay in the event that the employee worked overtime.
   grossPay += hoursWorked * payRate;
   netPay = grossPay;
-  // If the employee is full time subtract the $17 and $77 otherwise we don't subtract anything.
+  // Using the ternary operator to check if the employee is full time. If so subtract the $17 and $77 otherwise we don't subtract anything.
   netPay -= (empType == 1) ? 94 : 0;
   // Take out FIT based on taxable income
   fitTax = netPay * fitRate;
@@ -53,10 +53,11 @@ double weeklyPay(string name, double hoursWorked, double payRate, int empType) {
   medicareTax = (grossPay * 0.0145);
   netPay -= (socSec + medicareTax);
 
-  // cout << color << allToUpper(name) << reset << ": $" << fixed << setprecision(2) << netPay << " : " << ((empType == 1) ? "Full time" : "Part time") << endl;
-
+  // Set the decimal precision to hundreths
   cout << fixed << setprecision(2);
+  // Calling a utility function to uppercase the whole word
   cout << blue << allToUpper(name) << "'S" << reset << " Weekly Pay:" << endl;
+  // Using the ternary operator to check if employee is Full-time (1) or Part-time (2)
   cout << green << "Status: " << reset << ((empType == 1) ? "Full-time" : "Part-time") << endl;
   cout << "Gross Pay: $" << grossPay << endl;
   cout << "Dental deduction (pre-tax): $17.00" << endl;
@@ -65,6 +66,7 @@ double weeklyPay(string name, double hoursWorked, double payRate, int empType) {
   cout << "Federal Income Tax: $" << fitTax << endl;
   cout << "Social Security Taxes: $" << socSec << endl;
   cout << "Medicare Taxes: $" << medicareTax << reset << endl;
+  // Calling a utility function to uppercase the whole word
   cout << blue << allToUpper(name) << "'S" << reset << " Net Pay is $"; 
   
   
